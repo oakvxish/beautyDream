@@ -59,7 +59,7 @@ nav.scrolled {
 .btn-line { color:var(--mauve); border-bottom:1px solid var(--border); padding-bottom:3px; }
 .btn-line:hover { color:var(--wine); border-color:var(--mauve); }
 
-/* HERO RIGHT — full photo */
+/* HERO RIGHT */
 .hero-right {
   position:relative; overflow:hidden;
   opacity:0; animation:fadeIn 1.4s .4s both;
@@ -95,7 +95,7 @@ nav.scrolled {
 .marquee-item { font-family:var(--body); font-size:.85rem; font-style:italic; color:var(--taupe); letter-spacing:.05em; flex-shrink:0; }
 .marquee-dot { color:var(--blush); font-style:normal; }
 
-/* PHOTO STRIP — 3 photos after marquee */
+/* PHOTO STRIP */
 .photo-strip { display:grid; grid-template-columns:1fr 1fr 1fr; height:400px; }
 .photo-strip-item { position:relative; overflow:hidden; }
 .photo-strip-item img { width:100%; height:100%; object-fit:cover; transition:transform .8s ease; display:block; }
@@ -142,7 +142,7 @@ nav.scrolled {
 .photo-feature-content .heading em { color:var(--blush); }
 .photo-feature-content p { font-family:var(--body); font-size:1rem; font-style:italic; color:rgba(248,244,239,0.6); line-height:1.9; margin-top:1.5rem; max-width:420px; }
 
-/* PHOTO GRID — 2 col with text */
+/* PHOTO GRID */
 .photo-text-grid { display:grid; grid-template-columns:1fr 1fr; }
 .ptg-photo { position:relative; overflow:hidden; min-height:500px; }
 .ptg-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s; }
@@ -166,7 +166,7 @@ nav.scrolled {
 .l-time { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.12em; color:var(--taupe); }
 .l-price { font-family:var(--serif); font-size:1rem; font-weight:400; color:var(--wine); white-space:nowrap; }
 
-/* ABOUT — dark with photo */
+/* ABOUT */
 #about { display:grid; grid-template-columns:1fr 1fr; }
 .about-panel { background:var(--ink); padding:7rem 5vw; display:flex; flex-direction:column; justify-content:center; }
 .about-panel .eyebrow { color:rgba(196,172,160,0.5); }
@@ -185,11 +185,63 @@ nav.scrolled {
 .aq-text { font-family:var(--serif); font-size:1.05rem; font-style:italic; font-weight:300; color:rgba(248,244,239,0.75); line-height:1.75; margin-bottom:1.2rem; }
 .aq-author { font-family:var(--sans); font-size:.55rem; font-weight:300; letter-spacing:.25em; text-transform:uppercase; color:var(--taupe); }
 
-/* GALLERY STRIP — 4 photos */
+/* GALLERY STRIP */
 .gallery-strip { display:grid; grid-template-columns:repeat(4,1fr); height:280px; }
 .gallery-strip-item { overflow:hidden; position:relative; }
 .gallery-strip-item img { width:100%; height:100%; object-fit:cover; transition:transform .8s; display:block; }
 .gallery-strip-item:hover img { transform:scale(1.06); }
+
+/* ─── RECENSIONI CAROSELLO ─── */
+#recensioni { background:var(--linen); padding:7rem 5vw; overflow:hidden; }
+.reviews-wrap { position:relative; }
+.reviews-track-wrap { overflow:hidden; }
+.reviews-track { display:flex; gap:2rem; transition:transform .6s cubic-bezier(.4,0,.2,1); }
+.review-card {
+  background:var(--ivory);
+  border:1px solid var(--border);
+  padding:2.8rem 2.6rem 2.2rem;
+  flex:0 0 calc(33.333% - 1.34rem);
+  min-width:0;
+  display:flex; flex-direction:column; gap:1rem;
+  transition:box-shadow .35s, transform .35s;
+  position:relative;
+}
+.review-card::before {
+  content:'\201C';
+  font-family:var(--serif);
+  font-size:5.5rem;
+  color:var(--blush);
+  line-height:.9;
+  position:absolute;
+  top:1rem; left:1.8rem;
+  opacity:.55;
+  pointer-events:none;
+}
+.review-card:hover { box-shadow:0 10px 48px rgba(30,26,24,0.09); transform:translateY(-4px); }
+.rc-stars { color:var(--mauve); font-size:.68rem; letter-spacing:.18em; padding-top:1rem; }
+.rc-text { font-family:var(--body); font-size:.97rem; font-style:italic; line-height:1.85; color:var(--ink); flex:1; }
+.rc-footer { display:flex; justify-content:space-between; align-items:baseline; padding-top:1.2rem; border-top:1px solid var(--border); margin-top:.4rem; }
+.rc-name { font-family:var(--sans); font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--wine); }
+.rc-time { font-family:var(--body); font-size:.8rem; font-style:italic; color:var(--taupe); }
+.rc-arrow {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:var(--ivory); border:1px solid var(--border);
+  width:3rem; height:3rem;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.15rem; color:var(--mauve);
+  transition:all .3s; z-index:10;
+  padding:0; line-height:1;
+}
+.rc-arrow:hover { background:var(--wine); color:var(--ivory); border-color:var(--wine); }
+.rc-prev { left:-1.5rem; }
+.rc-next { right:-1.5rem; }
+.rc-dots { display:flex; justify-content:center; gap:.65rem; margin-top:2.8rem; }
+.rc-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--blush); border:none; cursor:pointer; padding:0;
+  transition:all .3s;
+}
+.rc-dot.active { background:var(--wine); transform:scale(1.4); }
 
 /* CONTACT */
 #contatti { background:var(--ivory); }
@@ -242,6 +294,7 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   nav{padding:1.2rem 2rem} nav.scrolled{padding:.8rem 2rem}
   .nav-links{display:none}
   .s{padding:4rem 2rem}
+  #recensioni{padding:4rem 2rem}
   .photo-strip{grid-template-columns:1fr; height:auto}
   .photo-strip-item{height:260px}
   .services-top{grid-template-columns:1fr;gap:2rem}
@@ -259,6 +312,12 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   .cta-band{flex-direction:column;text-align:center;padding:3rem 2rem}
   footer{flex-direction:column;text-align:center;padding:2rem}
   .foot-links{justify-content:center}
+  .review-card { flex:0 0 100%; }
+  .rc-prev { left:-.5rem; }
+  .rc-next { right:-.5rem; }
+}
+@media(min-width:901px) and (max-width:1200px){
+  .review-card { flex:0 0 calc(50% - 1rem); }
 }
 </style>
 </head>
@@ -442,7 +501,7 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   </div>
 </section>
 
-<!-- ABOUT — dark panel + photo -->
+<!-- ABOUT -->
 <section id="about">
   <div class="about-panel reveal">
     <span class="eyebrow">Il nostro salone</span>
@@ -466,7 +525,7 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   </div>
 </section>
 
-<!-- GALLERY STRIP 4 PHOTOS -->
+<!-- GALLERY STRIP -->
 <div class="gallery-strip">
   <div class="gallery-strip-item">
     <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=500&q=80&fit=crop" alt="Cura del viso" loading="lazy">
@@ -481,6 +540,79 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=500&q=80&fit=crop" alt="Salone" loading="lazy">
   </div>
 </div>
+
+<!-- ─── RECENSIONI CAROSELLO ─── -->
+<section id="recensioni">
+  <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+    <span class="eyebrow" style="display:block; text-align:center;">Le nostre clienti</span>
+    <h2 class="heading" style="text-align:center;">Cosa dicono <em>di noi</em></h2>
+    <div style="width:2.5rem; height:.5px; background:var(--taupe); margin:1.5rem auto 0;"></div>
+  </div>
+  <div class="reviews-wrap">
+    <div class="reviews-track-wrap">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Ho eseguito un pedicure con applicazione di semipermanente e sono molto soddisfatta. Ho trovato professionalità, cura della persona e gentilezza. Esperienza super positiva, centro estetico davvero consigliato!</p>
+          <div class="rc-footer"><span class="rc-name">Tori</span><span class="rc-time">9 mesi fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Sono venuto casualmente a conoscenza del centro dopo che il centro in cui ero solito andare non aveva disponibilità. Dal giorno non sono più tornato indietro, continuando ad andare da Valentina!</p>
+          <div class="rc-footer"><span class="rc-name">Davide Medico</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Valentina è veramente in gamba. Molto professionale e sensibile alle varie necessità. Ti propone sempre nuovi trattamenti e utilizza prodotti di ottima qualità. Consigliatissimo!!!</p>
+          <div class="rc-footer"><span class="rc-name">Barbara Pedroni</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Valentina davvero una bravissima professionista. Mi ha consigliato ottimi prodotti per la cura della mia pelle. Gentilissima e sempre disponibile verso il cliente.</p>
+          <div class="rc-footer"><span class="rc-name">Vale Ceres</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Ho avuto il piacere di conoscere Valentina, sono rimasta contentissima dei suoi trattamenti. Molto professionale e preparata, consiglio.</p>
+          <div class="rc-footer"><span class="rc-name">Ausilia Frau</span><span class="rc-time">2 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Valentina è un'ottima professionista, attenta alla cura della clientela, aiutandola a scegliere il trattamento più adatto alle proprie esigenze. Ottimo qualità prezzo.</p>
+          <div class="rc-footer"><span class="rc-name">Monica Serventi</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Mi sono trovata bene. Valentina è molto accogliente e ti suggerisce i prodotti e i trattamenti giusti. Consigliato.</p>
+          <div class="rc-footer"><span class="rc-name">Sabrina Ferretti Incerti</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Valentina è una fantastica professionista del settore. Ottimi servizi, prodotti di altissima qualità a prezzi onesti! Lo consiglio!!!</p>
+          <div class="rc-footer"><span class="rc-name">Alessandra Mantovani</span><span class="rc-time">3 anni fa</span></div>
+        </div>
+
+        <div class="review-card">
+          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
+          <p class="rc-text">Ho trovato in questo centro attenzione al cliente, professionalità e competenza! Vivamente consigliato!</p>
+          <div class="rc-footer"><span class="rc-name">Anna Di Luca</span><span class="rc-time">1 anno fa</span></div>
+        </div>
+
+      </div>
+    </div>
+    <button class="rc-arrow rc-prev" id="rcPrev" aria-label="Precedente">&#8592;</button>
+    <button class="rc-arrow rc-next" id="rcNext" aria-label="Successiva">&#8594;</button>
+  </div>
+  <div class="rc-dots" id="rcDots"></div>
+</section>
 
 <!-- CTA BAND -->
 <div class="cta-band">
@@ -542,13 +674,80 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
 </footer>
 
 <script>
+  // NAV scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+  // Reveal on scroll
   const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
   }, { threshold: 0.1 });
   els.forEach(el => io.observe(el));
+
+  // ─── RECENSIONI CAROSELLO ───
+  (function(){
+    const track   = document.getElementById('reviewsTrack');
+    const dotsWrap= document.getElementById('rcDots');
+    const cards   = track.querySelectorAll('.review-card');
+    const GAP     = 32;
+    let current   = 0;
+
+    function getVisible(){
+      if(window.innerWidth <= 900)  return 1;
+      if(window.innerWidth <= 1200) return 2;
+      return 3;
+    }
+    function totalPages(){ return Math.ceil(cards.length / getVisible()); }
+
+    function buildDots(){
+      dotsWrap.innerHTML = '';
+      const n = totalPages();
+      for(let i = 0; i < n; i++){
+        const d = document.createElement('button');
+        d.className = 'rc-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Pagina ' + (i+1));
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function goTo(idx){
+      const pages = totalPages();
+      current = Math.max(0, Math.min(idx, pages - 1));
+      const vis   = getVisible();
+      const wrapW = track.parentElement.offsetWidth;
+      const cardW = (wrapW - GAP * (vis - 1)) / vis;
+      const offset = current * vis * (cardW + GAP);
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      dotsWrap.querySelectorAll('.rc-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+
+    document.getElementById('rcPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('rcNext').addEventListener('click', () => goTo(current + 1));
+
+    // Touch / swipe
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40) dx < 0 ? goTo(current + 1) : goTo(current - 1);
+    });
+
+    // Auto-advance
+    let timer = setInterval(() => goTo((current + 1) % totalPages()), 5000);
+    track.parentElement.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
+    track.parentElement.parentElement.addEventListener('mouseleave', () => {
+      clearInterval(timer);
+      timer = setInterval(() => goTo((current + 1) % totalPages()), 5000);
+    });
+
+    buildDots();
+    goTo(0);
+    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+  })();
 </script>
 </body>
 </html>
