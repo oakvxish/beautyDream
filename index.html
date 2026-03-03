@@ -9,32 +9,17 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 :root {
-  --ivory:  #f8f4ef;
-  --linen:  #f0ebe3;
-  --blush:  #e8d5cc;
-  --taupe:  #c4aca0;
-  --mauve:  #9e7d75;
-  --wine:   #6b4a44;
-  --ink:    #1e1a18;
-  --mist:   rgba(30,26,24,0.06);
-  --border: rgba(196,172,160,0.3);
-  --serif:  'Playfair Display', Georgia, serif;
-  --body:   'EB Garamond', Georgia, serif;
-  --sans:   'Montserrat', sans-serif;
+  --ivory:  #f8f4ef; --linen:  #f0ebe3; --blush:  #e8d5cc; --taupe:  #c4aca0;
+  --mauve:  #9e7d75; --wine:   #6b4a44; --ink:    #1e1a18;
+  --mist:   rgba(30,26,24,0.06); --border: rgba(196,172,160,0.3);
+  --serif:  "Playfair Display", Georgia, serif;
+  --body:   "EB Garamond", Georgia, serif;
+  --sans:   "Montserrat", sans-serif;
 }
 body { font-family:var(--body); background:var(--ivory); color:var(--ink); -webkit-font-smoothing:antialiased; }
 a,button { cursor:pointer; }
-
-/* NAV */
-nav {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  padding:2rem 5vw; display:flex; justify-content:space-between; align-items:center;
-  transition:all .5s;
-}
-nav.scrolled {
-  background:rgba(248,244,239,0.96); backdrop-filter:blur(16px);
-  padding:1.2rem 5vw; border-bottom:1px solid var(--border);
-}
+nav { position:fixed; top:0; left:0; right:0; z-index:200; padding:2rem 5vw; display:flex; justify-content:space-between; align-items:center; transition:all .5s; }
+nav.scrolled { background:rgba(248,244,239,0.96); backdrop-filter:blur(16px); padding:1.2rem 5vw; border-bottom:1px solid var(--border); }
 .nav-logo { font-family:var(--serif); font-weight:300; font-size:1.25rem; letter-spacing:.06em; color:var(--ink); text-decoration:none; }
 .nav-logo em { font-style:italic; color:var(--mauve); }
 .nav-links { list-style:none; display:flex; gap:3rem; align-items:center; }
@@ -42,8 +27,6 @@ nav.scrolled {
 .nav-links a:hover { color:var(--wine); }
 .nav-book { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.22em; text-transform:uppercase; text-decoration:none; color:var(--wine); border-bottom:1px solid var(--taupe); padding-bottom:2px; transition:all .3s; }
 .nav-book:hover { border-color:var(--wine); }
-
-/* HERO */
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; overflow:hidden; }
 .hero-left { padding:0 6vw; display:flex; flex-direction:column; justify-content:center; }
 .hero-label { font-family:var(--sans); font-size:.58rem; font-weight:300; letter-spacing:.4em; text-transform:uppercase; color:var(--taupe); margin-bottom:2.5rem; opacity:0; animation:rise .9s .3s both; }
@@ -52,97 +35,55 @@ nav.scrolled {
 .hero-rule { width:3rem; height:1px; background:var(--taupe); margin-bottom:2rem; opacity:0; animation:rise .9s .7s both; }
 .hero-sub { font-family:var(--body); font-size:1.05rem; font-style:italic; color:var(--taupe); line-height:1.8; max-width:360px; margin-bottom:3.5rem; opacity:0; animation:rise .9s .85s both; }
 .hero-actions { display:flex; gap:2rem; align-items:center; opacity:0; animation:rise .9s 1s both; }
-
 .btn { font-family:var(--sans); font-size:.58rem; font-weight:300; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; transition:all .3s; display:inline-block; }
 .btn-fill { background:var(--wine); color:#f8f4ef; padding:.85rem 2rem; }
 .btn-fill:hover { background:var(--ink); }
 .btn-line { color:var(--mauve); border-bottom:1px solid var(--border); padding-bottom:3px; }
 .btn-line:hover { color:var(--wine); border-color:var(--mauve); }
-
-/* HERO RIGHT */
-.hero-right {
-  position:relative; overflow:hidden;
-  opacity:0; animation:fadeIn 1.4s .4s both;
-}
+.hero-right { position:relative; overflow:hidden; opacity:0; animation:fadeIn 1.4s .4s both; }
 .hero-right img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-.hero-right-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to right, rgba(248,244,239,0.15) 0%, transparent 40%),
-             linear-gradient(to top, rgba(30,26,24,0.35) 0%, transparent 50%);
-}
-.hero-circle {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  width:280px; height:280px;
-  border:.5px solid rgba(255,255,255,0.2); border-radius:50%;
-  animation:rotateSlow 40s linear infinite; pointer-events:none;
-}
+.hero-right-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(248,244,239,0.15) 0%, transparent 40%), linear-gradient(to top, rgba(30,26,24,0.35) 0%, transparent 50%); }
+.hero-circle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:280px; height:280px; border:.5px solid rgba(255,255,255,0.2); border-radius:50%; animation:rotateSlow 40s linear infinite; pointer-events:none; }
 .hero-circle-2 { width:200px; height:200px; border:.5px dashed rgba(255,255,255,0.12); animation-direction:reverse; animation-duration:30s; }
-.hero-rating {
-  position:absolute; top:3.5rem; right:3rem;
-  background:rgba(248,244,239,0.88); backdrop-filter:blur(8px);
-  padding:1.2rem 1.6rem; text-align:center; border:1px solid var(--border);
-}
+.hero-rating { position:absolute; top:3.5rem; right:3rem; background:rgba(248,244,239,0.88); backdrop-filter:blur(8px); padding:1.2rem 1.6rem; text-align:center; border:1px solid var(--border); }
 .rating-num { font-family:var(--serif); font-size:2.2rem; font-weight:300; color:var(--wine); line-height:1; display:block; }
 .rating-stars { color:var(--mauve); font-size:.75rem; letter-spacing:.1em; display:block; margin:.2rem 0; }
 .rating-label { font-family:var(--sans); font-size:.52rem; letter-spacing:.15em; text-transform:uppercase; color:var(--taupe); }
 .hero-loc { position:absolute; bottom:3rem; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:.6rem; font-family:var(--sans); font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,0.75); white-space:nowrap; }
-.hero-loc::before,.hero-loc::after { content:''; width:24px; height:.5px; background:rgba(255,255,255,0.4); }
-
-/* MARQUEE */
+.hero-loc::before,.hero-loc::after { content:""; width:24px; height:.5px; background:rgba(255,255,255,0.4); }
 .marquee-wrap { overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:1.2rem 0; background:var(--linen); }
 .marquee-track { display:flex; gap:4rem; animation:marquee 30s linear infinite; white-space:nowrap; }
 .marquee-item { font-family:var(--body); font-size:.85rem; font-style:italic; color:var(--taupe); letter-spacing:.05em; flex-shrink:0; }
 .marquee-dot { color:var(--blush); font-style:normal; }
-
-/* PHOTO STRIP */
 .photo-strip { display:grid; grid-template-columns:1fr 1fr 1fr; height:400px; }
 .photo-strip-item { position:relative; overflow:hidden; }
 .photo-strip-item img { width:100%; height:100%; object-fit:cover; transition:transform .8s ease; display:block; }
 .photo-strip-item:hover img { transform:scale(1.04); }
-.photo-strip-caption {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:1.5rem 1.8rem;
-  background:linear-gradient(to top, rgba(30,26,24,0.65) 0%, transparent 100%);
-}
+.photo-strip-caption { position:absolute; bottom:0; left:0; right:0; padding:1.5rem 1.8rem; background:linear-gradient(to top, rgba(30,26,24,0.65) 0%, transparent 100%); }
 .photo-strip-caption span { font-family:var(--serif); font-size:1rem; font-style:italic; color:rgba(248,244,239,0.9); display:block; }
-
-/* SECTIONS */
 .s { padding:7rem 5vw; }
 .eyebrow { font-family:var(--sans); font-size:.55rem; font-weight:300; letter-spacing:.4em; text-transform:uppercase; color:var(--taupe); margin-bottom:1.4rem; display:block; }
 .heading { font-family:var(--serif); font-weight:300; font-size:clamp(2rem,3.5vw,3.2rem); line-height:1.12; color:var(--ink); }
 .heading em { font-style:italic; color:var(--mauve); }
 .body-txt { font-family:var(--body); font-size:1rem; line-height:2; color:var(--mauve); max-width:480px; }
-
-/* SERVICES */
 #servizi { background:var(--ivory); }
 .services-top { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; margin-bottom:5rem; }
 .services-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-left:1px solid var(--border); }
 .svc { border-right:1px solid var(--border); border-bottom:1px solid var(--border); padding:2.8rem 2.4rem; transition:background .4s; position:relative; overflow:hidden; }
-.svc::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--mauve); transition:width .5s; }
+.svc::after { content:""; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--mauve); transition:width .5s; }
 .svc:hover::after { width:100%; }
 .svc:hover { background:var(--linen); }
 .svc-num { font-family:var(--serif); font-size:.75rem; font-style:italic; color:var(--blush); display:block; margin-bottom:2rem; }
 .svc-name { font-family:var(--serif); font-weight:300; font-size:1.25rem; color:var(--ink); margin-bottom:.75rem; line-height:1.25; }
 .svc-desc { font-family:var(--body); font-size:.88rem; line-height:1.75; color:var(--taupe); font-style:italic; }
-
-/* FULL-WIDTH PHOTO FEATURE */
-.photo-feature {
-  position:relative; height:560px; overflow:hidden;
-  display:flex; align-items:center;
-}
+.photo-feature { position:relative; height:560px; overflow:hidden; display:flex; align-items:center; }
 .photo-feature img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; }
 .photo-feature-overlay { position:absolute; inset:0; background:rgba(30,26,24,0.52); }
-.photo-feature-content {
-  position:relative; z-index:2;
-  padding:0 5vw; max-width:600px;
-}
+.photo-feature-content { position:relative; z-index:2; padding:0 5vw; max-width:600px; }
 .photo-feature-content .eyebrow { color:rgba(196,172,160,0.7); }
 .photo-feature-content .heading { color:var(--ivory); font-size:clamp(2.2rem,4vw,3.8rem); }
 .photo-feature-content .heading em { color:var(--blush); }
 .photo-feature-content p { font-family:var(--body); font-size:1rem; font-style:italic; color:rgba(248,244,239,0.6); line-height:1.9; margin-top:1.5rem; max-width:420px; }
-
-/* PHOTO GRID */
 .photo-text-grid { display:grid; grid-template-columns:1fr 1fr; }
 .ptg-photo { position:relative; overflow:hidden; min-height:500px; }
 .ptg-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s; }
@@ -151,8 +92,6 @@ nav.scrolled {
 .ptg-text .eyebrow { margin-bottom:1.2rem; }
 .ptg-text .heading { margin-bottom:2rem; }
 .ptg-text p { font-family:var(--body); font-size:1rem; line-height:2; color:var(--mauve); max-width:400px; margin-bottom:2.5rem; }
-
-/* LISTINO */
 #listino { background:var(--linen); }
 .listino-top { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--border); }
 .listino-note { font-family:var(--body); font-size:.85rem; font-style:italic; color:var(--taupe); }
@@ -165,8 +104,6 @@ nav.scrolled {
 .l-right { display:flex; align-items:baseline; gap:.9rem; flex-shrink:0; }
 .l-time { font-family:var(--sans); font-size:.6rem; font-weight:300; letter-spacing:.12em; color:var(--taupe); }
 .l-price { font-family:var(--serif); font-size:1rem; font-weight:400; color:var(--wine); white-space:nowrap; }
-
-/* ABOUT */
 #about { display:grid; grid-template-columns:1fr 1fr; }
 .about-panel { background:var(--ink); padding:7rem 5vw; display:flex; flex-direction:column; justify-content:center; }
 .about-panel .eyebrow { color:rgba(196,172,160,0.5); }
@@ -184,66 +121,29 @@ nav.scrolled {
 .aq-mark { font-family:var(--serif); font-size:4rem; color:rgba(196,172,160,0.2); line-height:1; display:block; margin-bottom:-.5rem; }
 .aq-text { font-family:var(--serif); font-size:1.05rem; font-style:italic; font-weight:300; color:rgba(248,244,239,0.75); line-height:1.75; margin-bottom:1.2rem; }
 .aq-author { font-family:var(--sans); font-size:.55rem; font-weight:300; letter-spacing:.25em; text-transform:uppercase; color:var(--taupe); }
-
-/* GALLERY STRIP */
 .gallery-strip { display:grid; grid-template-columns:repeat(4,1fr); height:280px; }
 .gallery-strip-item { overflow:hidden; position:relative; }
 .gallery-strip-item img { width:100%; height:100%; object-fit:cover; transition:transform .8s; display:block; }
 .gallery-strip-item:hover img { transform:scale(1.06); }
-
-/* ─── RECENSIONI CAROSELLO ─── */
 #recensioni { background:var(--linen); padding:7rem 5vw; overflow:hidden; }
 .reviews-wrap { position:relative; }
 .reviews-track-wrap { overflow:hidden; }
 .reviews-track { display:flex; gap:2rem; transition:transform .6s cubic-bezier(.4,0,.2,1); }
-.review-card {
-  background:var(--ivory);
-  border:1px solid var(--border);
-  padding:2.8rem 2.6rem 2.2rem;
-  flex:0 0 calc(33.333% - 1.34rem);
-  min-width:0;
-  display:flex; flex-direction:column; gap:1rem;
-  transition:box-shadow .35s, transform .35s;
-  position:relative;
-}
-.review-card::before {
-  content:'\201C';
-  font-family:var(--serif);
-  font-size:5.5rem;
-  color:var(--blush);
-  line-height:.9;
-  position:absolute;
-  top:1rem; left:1.8rem;
-  opacity:.55;
-  pointer-events:none;
-}
+.review-card { background:var(--ivory); border:1px solid var(--border); padding:2.8rem 2.6rem 2.2rem; flex:0 0 calc(33.333% - 1.34rem); min-width:0; display:flex; flex-direction:column; gap:1rem; transition:box-shadow .35s, transform .35s; position:relative; }
+.review-card::before { content:"C"; font-family:var(--serif); font-size:5.5rem; color:var(--blush); line-height:.9; position:absolute; top:1rem; left:1.8rem; opacity:.55; pointer-events:none; }
 .review-card:hover { box-shadow:0 10px 48px rgba(30,26,24,0.09); transform:translateY(-4px); }
 .rc-stars { color:var(--mauve); font-size:.68rem; letter-spacing:.18em; padding-top:1rem; }
 .rc-text { font-family:var(--body); font-size:.97rem; font-style:italic; line-height:1.85; color:var(--ink); flex:1; }
 .rc-footer { display:flex; justify-content:space-between; align-items:baseline; padding-top:1.2rem; border-top:1px solid var(--border); margin-top:.4rem; }
 .rc-name { font-family:var(--sans); font-size:.58rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase; color:var(--wine); }
 .rc-time { font-family:var(--body); font-size:.8rem; font-style:italic; color:var(--taupe); }
-.rc-arrow {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background:var(--ivory); border:1px solid var(--border);
-  width:3rem; height:3rem;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.15rem; color:var(--mauve);
-  transition:all .3s; z-index:10;
-  padding:0; line-height:1;
-}
+.rc-arrow { position:absolute; top:50%; transform:translateY(-50%); background:var(--ivory); border:1px solid var(--border); width:3rem; height:3rem; display:flex; align-items:center; justify-content:center; font-size:1.15rem; color:var(--mauve); transition:all .3s; z-index:10; padding:0; line-height:1; }
 .rc-arrow:hover { background:var(--wine); color:var(--ivory); border-color:var(--wine); }
 .rc-prev { left:-1.5rem; }
 .rc-next { right:-1.5rem; }
 .rc-dots { display:flex; justify-content:center; gap:.65rem; margin-top:2.8rem; }
-.rc-dot {
-  width:6px; height:6px; border-radius:50%;
-  background:var(--blush); border:none; cursor:pointer; padding:0;
-  transition:all .3s;
-}
+.rc-dot { width:6px; height:6px; border-radius:50%; background:var(--blush); border:none; cursor:pointer; padding:0; transition:all .3s; }
 .rc-dot.active { background:var(--wine); transform:scale(1.4); }
-
-/* CONTACT */
 #contatti { background:var(--ivory); }
 .contact-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:6rem; margin-top:4rem; }
 .c-block { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--border); }
@@ -261,23 +161,17 @@ nav.scrolled {
 .book-box { margin-top:3rem; border:1px solid var(--border); padding:2.5rem; background:var(--linen); }
 .book-box-title { font-family:var(--serif); font-weight:300; font-size:1.5rem; font-style:italic; color:var(--wine); margin-bottom:.8rem; line-height:1.25; }
 .book-box-desc { font-family:var(--body); font-size:.9rem; font-style:italic; color:var(--taupe); line-height:1.75; margin-bottom:2rem; }
-
-/* CTA BAND */
 .cta-band { background:var(--wine); padding:4.5rem 5vw; display:flex; justify-content:space-between; align-items:center; gap:2rem; }
 .cta-text { font-family:var(--serif); font-weight:300; font-size:clamp(1.5rem,2.5vw,2.2rem); color:rgba(248,244,239,0.9); line-height:1.3; }
 .cta-text em { font-style:italic; color:var(--blush); }
 .btn-light { font-family:var(--sans); font-size:.58rem; font-weight:300; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; color:var(--wine); background:var(--ivory); padding:.9rem 2.2rem; white-space:nowrap; transition:background .3s; }
 .btn-light:hover { background:white; }
-
-/* FOOTER */
 footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:space-between; align-items:center; gap:2rem; }
 .foot-logo { font-family:var(--serif); font-weight:300; font-style:italic; font-size:1.1rem; color:rgba(248,244,239,0.4); text-decoration:none; }
 .foot-copy { font-family:var(--sans); font-size:.55rem; font-weight:300; letter-spacing:.12em; color:rgba(248,244,239,0.2); text-align:center; }
 .foot-links { display:flex; gap:2rem; }
 .foot-links a { font-family:var(--sans); font-size:.55rem; font-weight:300; letter-spacing:.2em; text-transform:uppercase; color:rgba(248,244,239,0.25); text-decoration:none; transition:color .3s; }
 .foot-links a:hover { color:var(--taupe); }
-
-/* ANIMATIONS */
 @keyframes rise { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 @keyframes rotateSlow { to{transform:translate(-50%,-50%) rotate(360deg)} }
@@ -285,45 +179,25 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
 .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s,transform .8s; }
 .reveal.in { opacity:1; transform:translateY(0); }
 .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
-
-/* RESPONSIVE */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:7rem 2rem 3rem}
-  .hero-right{height:320px}
-  nav{padding:1.2rem 2rem} nav.scrolled{padding:.8rem 2rem}
-  .nav-links{display:none}
-  .s{padding:4rem 2rem}
-  #recensioni{padding:4rem 2rem}
-  .photo-strip{grid-template-columns:1fr; height:auto}
-  .photo-strip-item{height:260px}
-  .services-top{grid-template-columns:1fr;gap:2rem}
-  .services-grid{grid-template-columns:1fr}
-  .photo-feature{height:420px}
-  .photo-text-grid{grid-template-columns:1fr}
-  .ptg-photo{min-height:300px}
-  .listino-top{flex-direction:column;gap:1rem;align-items:flex-start}
-  .listino-grid{grid-template-columns:1fr}
-  #about{grid-template-columns:1fr}
-  .about-photo{height:400px}
-  .gallery-strip{grid-template-columns:1fr 1fr;height:auto}
-  .gallery-strip-item{height:200px}
+  .hero{grid-template-columns:1fr} .hero-left{padding:7rem 2rem 3rem} .hero-right{height:320px}
+  nav{padding:1.2rem 2rem} nav.scrolled{padding:.8rem 2rem} .nav-links{display:none}
+  .s{padding:4rem 2rem} #recensioni{padding:4rem 2rem}
+  .photo-strip{grid-template-columns:1fr;height:auto} .photo-strip-item{height:260px}
+  .services-top{grid-template-columns:1fr;gap:2rem} .services-grid{grid-template-columns:1fr}
+  .photo-feature{height:420px} .photo-text-grid{grid-template-columns:1fr} .ptg-photo{min-height:300px}
+  .listino-top{flex-direction:column;gap:1rem;align-items:flex-start} .listino-grid{grid-template-columns:1fr}
+  #about{grid-template-columns:1fr} .about-photo{height:400px}
+  .gallery-strip{grid-template-columns:1fr 1fr;height:auto} .gallery-strip-item{height:200px}
   .contact-layout{grid-template-columns:1fr;gap:2rem}
   .cta-band{flex-direction:column;text-align:center;padding:3rem 2rem}
-  footer{flex-direction:column;text-align:center;padding:2rem}
-  .foot-links{justify-content:center}
-  .review-card { flex:0 0 100%; }
-  .rc-prev { left:-.5rem; }
-  .rc-next { right:-.5rem; }
+  footer{flex-direction:column;text-align:center;padding:2rem} .foot-links{justify-content:center}
+  .review-card{flex:0 0 100%;} .rc-prev{left:-.5rem;} .rc-next{right:-.5rem;}
 }
-@media(min-width:901px) and (max-width:1200px){
-  .review-card { flex:0 0 calc(50% - 1rem); }
-}
+@media(min-width:901px) and (max-width:1200px){ .review-card{flex:0 0 calc(50% - 1rem);} }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">Beauty <em>Dream</em></a>
   <ul class="nav-links">
@@ -333,16 +207,14 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <li><a href="#contatti" class="nav-book">Prenota</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-label">Centro Estetico · Reggio Emilia</span>
+    <span class="hero-label">Centro Estetico &middot; Reggio Emilia</span>
     <h1 class="hero-title">Beauty<em>Dream</em></h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Un rifugio di cura e bellezza, dove ogni dettaglio è pensato per te.</p>
+    <p class="hero-sub">Un rifugio di cura e bellezza, dove ogni dettaglio &egrave; pensato per te.</p>
     <div class="hero-actions">
-      <a href="tel:335433748" class="btn btn-fill">Prenota · 335 433 748</a>
+      <a href="https://wa.me/39335433748" target="_blank" class="btn btn-fill">Prenota ora!</a>
       <a href="#listino" class="btn btn-line">Scopri i trattamenti</a>
     </div>
   </div>
@@ -353,36 +225,32 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <div class="hero-circle hero-circle-2"></div>
     <div class="hero-rating">
       <span class="rating-num">5k+</span>
-      <span class="rating-stars">✦ ✦ ✦ ✦ ✦</span>
+      <span class="rating-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</span>
       <span class="rating-label">clienti soddisfatte</span>
     </div>
-    <div class="hero-loc">Via De Gasperi 35/b · Reggio Emilia</div>
+    <div class="hero-loc">Via De Gasperi 35/b &middot; Reggio Emilia</div>
   </div>
 </section>
-
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item">Trattamenti Viso <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Massaggi Corpo <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Epilazione <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Manicure &amp; Pedicure <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Semi-Permanente <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Peeling Corpo <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Anti-Età <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Paraffina <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Trattamenti Viso <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Massaggi Corpo <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Epilazione <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Manicure &amp; Pedicure <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Semi-Permanente <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Peeling Corpo <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Anti-Età <span class="marquee-dot"> ✦ </span></span>
-    <span class="marquee-item">Paraffina <span class="marquee-dot"> ✦ </span></span>
+    <span class="marquee-item">Trattamenti Viso <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Massaggi Corpo <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Epilazione <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Manicure &amp; Pedicure <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Semi-Permanente <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Peeling Corpo <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Anti-Et&agrave; <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Paraffina <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Trattamenti Viso <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Massaggi Corpo <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Epilazione <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Manicure &amp; Pedicure <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Semi-Permanente <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Peeling Corpo <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Anti-Et&agrave; <span class="marquee-dot"> &#10022; </span></span>
+    <span class="marquee-item">Paraffina <span class="marquee-dot"> &#10022; </span></span>
   </div>
 </div>
-
-<!-- PHOTO STRIP 3 -->
 <div class="photo-strip">
   <div class="photo-strip-item">
     <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=80&fit=crop" alt="Trattamento viso" loading="lazy">
@@ -397,15 +265,13 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <div class="photo-strip-caption"><span>Mani &amp; Piedi</span></div>
   </div>
 </div>
-
-<!-- SERVIZI -->
 <section id="servizi" class="s">
   <div class="services-top">
     <div class="reveal">
       <span class="eyebrow">I nostri trattamenti</span>
       <h2 class="heading">Benessere<br>con <em>eleganza</em></h2>
     </div>
-    <p class="body-txt reveal d1">Ogni trattamento è eseguito con cura artigianale da Valentina. Qualità, discrezione e attenzione al dettaglio sono i valori che guidano ogni nostra sessione.</p>
+    <p class="body-txt reveal d1">Ogni trattamento &egrave; eseguito con cura artigianale da Valentina. Qualit&agrave;, discrezione e attenzione al dettaglio sono i valori che guidano ogni nostra sessione.</p>
   </div>
   <div class="services-grid">
     <div class="svc reveal"><span class="svc-num">i.</span><h3 class="svc-name">Cura del Viso</h3><p class="svc-desc">Pulizia profonda e trattamenti personalizzati per una pelle radiosa e nutrita.</p></div>
@@ -413,22 +279,18 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <div class="svc reveal d2"><span class="svc-num">iii.</span><h3 class="svc-name">Epilazione</h3><p class="svc-desc">Trattamenti precisi per viso e corpo, con la delicatezza che merita ogni pelle.</p></div>
     <div class="svc reveal"><span class="svc-num">iv.</span><h3 class="svc-name">Manicure &amp; Pedicure</h3><p class="svc-desc">Cura integrale delle mani e dei piedi, dalla paraffina allo scrub rigenerante.</p></div>
     <div class="svc reveal d1"><span class="svc-num">v.</span><h3 class="svc-name">Semi-Permanente</h3><p class="svc-desc">Applicazione rinforzata per mani e piedi duraturi. Finitura impeccabile, a lungo.</p></div>
-    <div class="svc reveal d2"><span class="svc-num">vi.</span><h3 class="svc-name">Anti-Età &amp; Macchie</h3><p class="svc-desc">Trattamenti mirati per rigenerare, illuminare e restituire giovinezza alla pelle.</p></div>
+    <div class="svc reveal d2"><span class="svc-num">vi.</span><h3 class="svc-name">Anti-Et&agrave; &amp; Macchie</h3><p class="svc-desc">Trattamenti mirati per rigenerare, illuminare e restituire giovinezza alla pelle.</p></div>
   </div>
 </section>
-
-<!-- FULL-WIDTH PHOTO FEATURE -->
 <div class="photo-feature">
   <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=80&fit=crop&crop=center" alt="Spa experience" loading="lazy">
   <div class="photo-feature-overlay"></div>
   <div class="photo-feature-content reveal">
     <span class="eyebrow">Il nostro approccio</span>
     <h2 class="heading">Un momento<br>solo per <em>te</em></h2>
-    <p>In uno spazio tranquillo e raffinato, ogni visita a Beauty Dream è pensata per farti sentire coccolata, ascoltata e pienamente a tuo agio.</p>
+    <p>In uno spazio tranquillo e raffinato, ogni visita a Beauty Dream &egrave; pensata per farti sentire coccolata, ascoltata e pienamente a tuo agio.</p>
   </div>
 </div>
-
-<!-- PHOTO LEFT + TEXT RIGHT -->
 <div class="photo-text-grid">
   <div class="ptg-photo">
     <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80&fit=crop" alt="Skincare beauty" loading="lazy">
@@ -437,11 +299,9 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <span class="eyebrow">La nostra filosofia</span>
     <h2 class="heading">Cura <em>autentica</em>,<br>risultati visibili</h2>
     <p>Utilizziamo prodotti selezionati e tecniche professionali per garantire il massimo benessere. La tua pelle, le tue esigenze, il tuo ritmo.</p>
-    <a href="tel:335433748" class="btn btn-fill">Prenota ora</a>
+    <a href="https://wa.me/39335433748" target="_blank" class="btn btn-fill">Scrivici su WhatsApp</a>
   </div>
 </div>
-
-<!-- LISTINO -->
 <section id="listino" class="s">
   <div class="listino-top reveal">
     <div>
@@ -454,60 +314,58 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <div class="l-cat reveal">
       <h3 class="l-cat-title">Viso</h3>
       <div class="l-row"><span class="l-name">Pulizia Viso</span><div class="l-right"><span class="l-price">su richiesta</span></div></div>
-      <div class="l-row"><span class="l-name">Trattamento Viso</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 60</span></div></div>
+      <div class="l-row"><span class="l-name">Trattamento Viso</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 60</span></div></div>
     </div>
     <div class="l-cat reveal d1">
       <h3 class="l-cat-title">Corpo</h3>
-      <div class="l-row"><span class="l-name">Massaggio Drenante Anti-Cellulite</span><div class="l-right"><span class="l-time">75/90 min</span><span class="l-price">€ 45 – 110</span></div></div>
-      <div class="l-row"><span class="l-name">Massaggio Defaticante Parziale</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 60</span></div></div>
-      <div class="l-row"><span class="l-name">Trattamento Corpo</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">€ 35</span></div></div>
-      <div class="l-row"><span class="l-name">Tonificante Seno / Braccia</span><div class="l-right"><span class="l-time">90 min</span><span class="l-price">€ 70 – 90</span></div></div>
-      <div class="l-row"><span class="l-name">Peeling Corpo</span><div class="l-right"><span class="l-time">50–60 min</span><span class="l-price">€ 55 – 70</span></div></div>
+      <div class="l-row"><span class="l-name">Massaggio Drenante Anti-Cellulite</span><div class="l-right"><span class="l-time">75/90 min</span><span class="l-price">&euro; 45 &ndash; 110</span></div></div>
+      <div class="l-row"><span class="l-name">Massaggio Defaticante Parziale</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 60</span></div></div>
+      <div class="l-row"><span class="l-name">Trattamento Corpo</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">&euro; 35</span></div></div>
+      <div class="l-row"><span class="l-name">Tonificante Seno / Braccia</span><div class="l-right"><span class="l-time">90 min</span><span class="l-price">&euro; 70 &ndash; 90</span></div></div>
+      <div class="l-row"><span class="l-name">Peeling Corpo</span><div class="l-right"><span class="l-time">50&ndash;60 min</span><span class="l-price">&euro; 55 &ndash; 70</span></div></div>
     </div>
     <div class="l-cat reveal">
       <h3 class="l-cat-title">Epilazione Viso</h3>
-      <div class="l-row"><span class="l-name">Sopracciglia</span><div class="l-right"><span class="l-time">10/15 min</span><span class="l-price">€ 5 / 7 / 10</span></div></div>
-      <div class="l-row"><span class="l-name">Labbro Superiore</span><div class="l-right"><span class="l-price">€ 5</span></div></div>
-      <div class="l-row"><span class="l-name">Mento</span><div class="l-right"><span class="l-price">€ 5</span></div></div>
-      <div class="l-row"><span class="l-name">Viso</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">€ 15</span></div></div>
+      <div class="l-row"><span class="l-name">Sopracciglia</span><div class="l-right"><span class="l-time">10/15 min</span><span class="l-price">&euro; 5 / 7 / 10</span></div></div>
+      <div class="l-row"><span class="l-name">Labbro Superiore</span><div class="l-right"><span class="l-price">&euro; 5</span></div></div>
+      <div class="l-row"><span class="l-name">Mento</span><div class="l-right"><span class="l-price">&euro; 5</span></div></div>
+      <div class="l-row"><span class="l-name">Viso</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">&euro; 15</span></div></div>
     </div>
     <div class="l-cat reveal d1">
       <h3 class="l-cat-title">Epilazione Corpo</h3>
-      <div class="l-row"><span class="l-name">Mezza Gamba</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">€ 15</span></div></div>
-      <div class="l-row"><span class="l-name">Coscia</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">€ 20</span></div></div>
-      <div class="l-row"><span class="l-name">Gamba Completa</span><div class="l-right"><span class="l-time">40 min</span><span class="l-price">€ 40</span></div></div>
-      <div class="l-row"><span class="l-name">Inguine</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">€ 15</span></div></div>
-      <div class="l-row"><span class="l-name">Inguine Totale</span><div class="l-right"><span class="l-time">25 min</span><span class="l-price">€ 20</span></div></div>
-      <div class="l-row"><span class="l-name">Ascelle</span><div class="l-right"><span class="l-time">10 min</span><span class="l-price">€ 10</span></div></div>
-      <div class="l-row"><span class="l-name">Metà Braccio</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">€ 15</span></div></div>
-      <div class="l-row"><span class="l-name">Braccio Completo</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">€ 20</span></div></div>
-      <div class="l-row"><span class="l-name">Schiena</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">€ 30</span></div></div>
-      <div class="l-row"><span class="l-name">Torace / Spalle / Addome</span><div class="l-right"><span class="l-time">10/15 min</span><span class="l-price">€ 15</span></div></div>
+      <div class="l-row"><span class="l-name">Mezza Gamba</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">&euro; 15</span></div></div>
+      <div class="l-row"><span class="l-name">Coscia</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">&euro; 20</span></div></div>
+      <div class="l-row"><span class="l-name">Gamba Completa</span><div class="l-right"><span class="l-time">40 min</span><span class="l-price">&euro; 40</span></div></div>
+      <div class="l-row"><span class="l-name">Inguine</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">&euro; 15</span></div></div>
+      <div class="l-row"><span class="l-name">Inguine Totale</span><div class="l-right"><span class="l-time">25 min</span><span class="l-price">&euro; 20</span></div></div>
+      <div class="l-row"><span class="l-name">Ascelle</span><div class="l-right"><span class="l-time">10 min</span><span class="l-price">&euro; 10</span></div></div>
+      <div class="l-row"><span class="l-name">Met&agrave; Braccio</span><div class="l-right"><span class="l-time">20 min</span><span class="l-price">&euro; 15</span></div></div>
+      <div class="l-row"><span class="l-name">Braccio Completo</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">&euro; 20</span></div></div>
+      <div class="l-row"><span class="l-name">Schiena</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">&euro; 30</span></div></div>
+      <div class="l-row"><span class="l-name">Torace / Spalle / Addome</span><div class="l-right"><span class="l-time">10/15 min</span><span class="l-price">&euro; 15</span></div></div>
     </div>
     <div class="l-cat reveal">
       <h3 class="l-cat-title">Mani &amp; Piedi</h3>
-      <div class="l-row"><span class="l-name">Trattamento Anti-Età e Macchie Mani</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">€ 40</span></div></div>
-      <div class="l-row"><span class="l-name">Manicure + Smalto</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 20 – 28</span></div></div>
-      <div class="l-row"><span class="l-name">Pedicure</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 30 – 38</span></div></div>
-      <div class="l-row"><span class="l-name">Trattamento Paraffina</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">€ 20</span></div></div>
-      <div class="l-row"><span class="l-name">Scrub Piedi o Mani</span><div class="l-right"><span class="l-time">10 min</span><span class="l-price">€ 5</span></div></div>
+      <div class="l-row"><span class="l-name">Trattamento Anti-Et&agrave; e Macchie Mani</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">&euro; 40</span></div></div>
+      <div class="l-row"><span class="l-name">Manicure + Smalto</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 20 &ndash; 28</span></div></div>
+      <div class="l-row"><span class="l-name">Pedicure</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 30 &ndash; 38</span></div></div>
+      <div class="l-row"><span class="l-name">Trattamento Paraffina</span><div class="l-right"><span class="l-time">30 min</span><span class="l-price">&euro; 20</span></div></div>
+      <div class="l-row"><span class="l-name">Scrub Piedi o Mani</span><div class="l-right"><span class="l-time">10 min</span><span class="l-price">&euro; 5</span></div></div>
     </div>
     <div class="l-cat reveal d1">
       <h3 class="l-cat-title">Smalto Semi-Permanente</h3>
-      <div class="l-row"><span class="l-name">Smalto monocolore Mani</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 38</span></div></div>
-      <div class="l-row"><span class="l-name">Smalto monocolore Piedi</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">€ 58</span></div></div>
-      <div class="l-row"><span class="l-name">Asportazione Semi-Permanente</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">€ 15</span></div></div>
+      <div class="l-row"><span class="l-name">Smalto monocolore Mani</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 38</span></div></div>
+      <div class="l-row"><span class="l-name">Smalto monocolore Piedi</span><div class="l-right"><span class="l-time">60 min</span><span class="l-price">&euro; 58</span></div></div>
+      <div class="l-row"><span class="l-name">Asportazione Semi-Permanente</span><div class="l-right"><span class="l-time">15 min</span><span class="l-price">&euro; 15</span></div></div>
     </div>
   </div>
 </section>
-
-<!-- ABOUT -->
 <section id="about">
   <div class="about-panel reveal">
     <span class="eyebrow">Il nostro salone</span>
     <h2 class="heading">Valentina<br>e il suo <em>tocco</em></h2>
     <div class="about-rule"></div>
-    <p class="about-body">Beauty Dream è un centro estetico nel cuore di Reggio Emilia. Guidato da Valentina con passione e dedizione, ogni visita è un momento di cura autentica — perché ogni persona merita il meglio.</p>
+    <p class="about-body">Beauty Dream &egrave; un centro estetico nel cuore di Reggio Emilia. Guidato da Valentina con passione e dedizione, ogni visita &egrave; un momento di cura autentica &mdash; perch&eacute; ogni persona merita il meglio.</p>
     <div class="about-stats" style="margin-top:2.5rem;">
       <div><span class="a-num">5k+</span><span class="a-label">Clienti</span></div>
       <div><span class="a-num">15+</span><span class="a-label">Anni</span></div>
@@ -518,94 +376,36 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=900&q=80&fit=crop&crop=center" alt="Centro estetico Beauty Dream" loading="lazy">
     <div class="about-photo-overlay"></div>
     <div class="about-quote-card">
-      <span class="aq-mark">"</span>
-      <p class="aq-text">Ogni cliente merita di uscire sentendosi più bella, più serena, più se stessa.</p>
-      <span class="aq-author">— Valentina · Beauty Dream</span>
+      <span class="aq-mark">&ldquo;</span>
+      <p class="aq-text">Ogni cliente merita di uscire sentendosi pi&ugrave; bella, pi&ugrave; serena, pi&ugrave; se stessa.</p>
+      <span class="aq-author">&mdash; Valentina &middot; Beauty Dream</span>
     </div>
   </div>
 </section>
-
-<!-- GALLERY STRIP -->
 <div class="gallery-strip">
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=500&q=80&fit=crop" alt="Cura del viso" loading="lazy">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=500&q=80&fit=crop" alt="Massaggio" loading="lazy">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&q=80&fit=crop" alt="Skincare" loading="lazy">
-  </div>
-  <div class="gallery-strip-item">
-    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=500&q=80&fit=crop" alt="Salone" loading="lazy">
-  </div>
+  <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=500&q=80&fit=crop" alt="Cura del viso" loading="lazy"></div>
+  <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=500&q=80&fit=crop" alt="Massaggio" loading="lazy"></div>
+  <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&q=80&fit=crop" alt="Skincare" loading="lazy"></div>
+  <div class="gallery-strip-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=500&q=80&fit=crop" alt="Salone" loading="lazy"></div>
 </div>
-
-<!-- ─── RECENSIONI CAROSELLO ─── -->
 <section id="recensioni">
-  <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
-    <span class="eyebrow" style="display:block; text-align:center;">Le nostre clienti</span>
+  <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
+    <span class="eyebrow" style="display:block;text-align:center;">Le nostre clienti</span>
     <h2 class="heading" style="text-align:center;">Cosa dicono <em>di noi</em></h2>
-    <div style="width:2.5rem; height:.5px; background:var(--taupe); margin:1.5rem auto 0;"></div>
+    <div style="width:2.5rem;height:.5px;background:var(--taupe);margin:1.5rem auto 0;"></div>
   </div>
   <div class="reviews-wrap">
     <div class="reviews-track-wrap">
       <div class="reviews-track" id="reviewsTrack">
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Ho eseguito un pedicure con applicazione di semipermanente e sono molto soddisfatta. Ho trovato professionalità, cura della persona e gentilezza. Esperienza super positiva, centro estetico davvero consigliato!</p>
-          <div class="rc-footer"><span class="rc-name">Tori</span><span class="rc-time">9 mesi fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Sono venuto casualmente a conoscenza del centro dopo che il centro in cui ero solito andare non aveva disponibilità. Dal giorno non sono più tornato indietro, continuando ad andare da Valentina!</p>
-          <div class="rc-footer"><span class="rc-name">Davide Medico</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Valentina è veramente in gamba. Molto professionale e sensibile alle varie necessità. Ti propone sempre nuovi trattamenti e utilizza prodotti di ottima qualità. Consigliatissimo!!!</p>
-          <div class="rc-footer"><span class="rc-name">Barbara Pedroni</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Valentina davvero una bravissima professionista. Mi ha consigliato ottimi prodotti per la cura della mia pelle. Gentilissima e sempre disponibile verso il cliente.</p>
-          <div class="rc-footer"><span class="rc-name">Vale Ceres</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Ho avuto il piacere di conoscere Valentina, sono rimasta contentissima dei suoi trattamenti. Molto professionale e preparata, consiglio.</p>
-          <div class="rc-footer"><span class="rc-name">Ausilia Frau</span><span class="rc-time">2 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Valentina è un'ottima professionista, attenta alla cura della clientela, aiutandola a scegliere il trattamento più adatto alle proprie esigenze. Ottimo qualità prezzo.</p>
-          <div class="rc-footer"><span class="rc-name">Monica Serventi</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Mi sono trovata bene. Valentina è molto accogliente e ti suggerisce i prodotti e i trattamenti giusti. Consigliato.</p>
-          <div class="rc-footer"><span class="rc-name">Sabrina Ferretti Incerti</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Valentina è una fantastica professionista del settore. Ottimi servizi, prodotti di altissima qualità a prezzi onesti! Lo consiglio!!!</p>
-          <div class="rc-footer"><span class="rc-name">Alessandra Mantovani</span><span class="rc-time">3 anni fa</span></div>
-        </div>
-
-        <div class="review-card">
-          <div class="rc-stars">✦ ✦ ✦ ✦ ✦</div>
-          <p class="rc-text">Ho trovato in questo centro attenzione al cliente, professionalità e competenza! Vivamente consigliato!</p>
-          <div class="rc-footer"><span class="rc-name">Anna Di Luca</span><span class="rc-time">1 anno fa</span></div>
-        </div>
-
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Ho eseguito un pedicure con applicazione di semipermanente e sono molto soddisfatta. Ho trovato professionalit&agrave;, cura della persona e gentilezza. Esperienza super positiva, centro estetico davvero consigliato!</p><div class="rc-footer"><span class="rc-name">Tori</span><span class="rc-time">9 mesi fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Sono venuto casualmente a conoscenza del centro dopo che il centro in cui ero solito andare non aveva disponibilit&agrave;. Dal giorno non sono pi&ugrave; tornato indietro, continuando ad andare da Valentina!</p><div class="rc-footer"><span class="rc-name">Davide Medico</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Valentina &egrave; veramente in gamba. Molto professionale e sensibile alle varie necessit&agrave;. Ti propone sempre nuovi trattamenti e utilizza prodotti di ottima qualit&agrave;. Consigliatissimo!!!</p><div class="rc-footer"><span class="rc-name">Barbara Pedroni</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Valentina davvero una bravissima professionista. Mi ha consigliato ottimi prodotti per la cura della mia pelle. Gentilissima e sempre disponibile verso il cliente.</p><div class="rc-footer"><span class="rc-name">Vale Ceres</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Ho avuto il piacere di conoscere Valentina, sono rimasta contentissima dei suoi trattamenti. Molto professionale e preparata, consiglio.</p><div class="rc-footer"><span class="rc-name">Ausilia Frau</span><span class="rc-time">2 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Valentina &egrave; un&apos;ottima professionista, attenta alla cura della clientela, aiutandola a scegliere il trattamento pi&ugrave; adatto alle proprie esigenze. Ottimo qualit&agrave; prezzo.</p><div class="rc-footer"><span class="rc-name">Monica Serventi</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Mi sono trovata bene. Valentina &egrave; molto accogliente e ti suggerisce i prodotti e i trattamenti giusti. Consigliato.</p><div class="rc-footer"><span class="rc-name">Sabrina Ferretti Incerti</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Valentina &egrave; una fantastica professionista del settore. Ottimi servizi, prodotti di altissima qualit&agrave; a prezzi onesti! Lo consiglio!!!</p><div class="rc-footer"><span class="rc-name">Alessandra Mantovani</span><span class="rc-time">3 anni fa</span></div></div>
+        <div class="review-card"><div class="rc-stars">&#10022; &#10022; &#10022; &#10022; &#10022;</div><p class="rc-text">Ho trovato in questo centro attenzione al cliente, professionalit&agrave; e competenza! Vivamente consigliato!</p><div class="rc-footer"><span class="rc-name">Anna Di Luca</span><span class="rc-time">1 anno fa</span></div></div>
       </div>
     </div>
     <button class="rc-arrow rc-prev" id="rcPrev" aria-label="Precedente">&#8592;</button>
@@ -613,14 +413,10 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   </div>
   <div class="rc-dots" id="rcDots"></div>
 </section>
-
-<!-- CTA BAND -->
 <div class="cta-band">
   <p class="cta-text">Pronta a prenderti<br>cura di <em>te?</em></p>
-  <a href="wa.me/39335433748" class="btn-light">Mandaci un messaggio su WhatsApp!</a>
+  <a href="https://wa.me/39335433748" target="_blank" class="btn-light">Mandaci un messaggio su WhatsApp!</a>
 </div>
-
-<!-- CONTATTI -->
 <section id="contatti" class="s">
   <div class="reveal">
     <span class="eyebrow">Dove trovarci</span>
@@ -629,14 +425,14 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
   <div class="contact-layout">
     <div>
       <div class="c-block reveal">
-        <span class="c-label">Telefono</span>
-        <a href="tel:335433748" class="c-value">335 433 748</a>
+        <span class="c-label">WhatsApp</span>
+        <a href="https://wa.me/39335433748" target="_blank" class="c-value">335 433 748</a>
         <span class="c-sub">Valentina</span>
       </div>
       <div class="c-block reveal">
         <span class="c-label">Indirizzo</span>
         <a href="https://maps.google.com/?q=Via+Alcide+De+Gasperi+35b+Reggio+Emilia" target="_blank" class="c-value">Via Alcide De Gasperi, 35/b</a>
-        <span class="c-sub">42122 Reggio nell'Emilia · Zona Pappagnocoli</span>
+        <span class="c-sub">42122 Reggio nell&apos;Emilia &middot; Zona Pappagnocoli</span>
       </div>
       <div class="c-block reveal">
         <span class="c-label">Email</span>
@@ -646,108 +442,58 @@ footer { background:var(--ink); padding:3rem 5vw; display:flex; justify-content:
     <div class="reveal">
       <span class="eyebrow" style="margin-bottom:1.8rem;">Orari di apertura</span>
       <table class="orari">
-        <tr><td>Lunedì</td><td class="closed">Chiuso</td></tr>
-        <tr><td>Martedì</td><td>9:00 – 18:30</td></tr>
-        <tr><td>Mercoledì</td><td>9:00 – 18:30</td></tr>
-        <tr><td>Giovedì</td><td>9:00 – 18:30</td></tr>
-        <tr><td>Venerdì</td><td>9:00 – 18:30</td></tr>
-        <tr><td>Sabato</td><td>9:00 – 18:30</td></tr>
+        <tr><td>Luned&igrave;</td><td class="closed">Chiuso</td></tr>
+        <tr><td>Marted&igrave;</td><td>9:00 &ndash; 18:30</td></tr>
+        <tr><td>Mercoled&igrave;</td><td>9:00 &ndash; 18:30</td></tr>
+        <tr><td>Gioved&igrave;</td><td>9:00 &ndash; 18:30</td></tr>
+        <tr><td>Venerd&igrave;</td><td>9:00 &ndash; 18:30</td></tr>
+        <tr><td>Sabato</td><td>9:00 &ndash; 18:30</td></tr>
         <tr><td>Domenica</td><td class="closed">Chiuso</td></tr>
       </table>
       <div class="book-box">
         <p class="book-box-title">Prenota il tuo trattamento</p>
-        <p class="book-box-desc">Contattaci per trovare l'orario più adatto a te. Siamo felici di consigliarti il percorso di bellezza ideale.</p>
-        <a href="tel:335433748" class="btn btn-fill">Chiama ora</a>
+        <p class="book-box-desc">Contattaci per trovare l&apos;orario pi&ugrave; adatto a te. Siamo felici di consigliarti il percorso di bellezza ideale.</p>
+        <a href="https://wa.me/39335433748" target="_blank" class="btn btn-fill">Scrivici su WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
-
 <footer>
   <a href="#" class="foot-logo">Beauty Dream</a>
-  <p class="foot-copy">© 2025 Beauty Dream Centro Estetico · Via Alcide De Gasperi 35/b, Reggio Emilia</p>
+  <p class="foot-copy">&copy; 2025 Beauty Dream Centro Estetico &middot; Via Alcide De Gasperi 35/b, Reggio Emilia</p>
   <div class="foot-links">
-    <a href="tel:335433748">Chiama</a>
+    <a href="https://wa.me/39335433748" target="_blank">WhatsApp</a>
     <a href="#listino">Listino</a>
     <a href="#contatti">Mappa</a>
   </div>
 </footer>
-
 <script>
-  // NAV scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
-
-  // Reveal on scroll
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
-  }, { threshold: 0.1 });
-  els.forEach(el => io.observe(el));
-
-  // ─── RECENSIONI CAROSELLO ───
-  (function(){
-    const track   = document.getElementById('reviewsTrack');
-    const dotsWrap= document.getElementById('rcDots');
-    const cards   = track.querySelectorAll('.review-card');
-    const GAP     = 32;
-    let current   = 0;
-
-    function getVisible(){
-      if(window.innerWidth <= 900)  return 1;
-      if(window.innerWidth <= 1200) return 2;
-      return 3;
-    }
-    function totalPages(){ return Math.ceil(cards.length / getVisible()); }
-
-    function buildDots(){
-      dotsWrap.innerHTML = '';
-      const n = totalPages();
-      for(let i = 0; i < n; i++){
-        const d = document.createElement('button');
-        d.className = 'rc-dot' + (i === current ? ' active' : '');
-        d.setAttribute('aria-label', 'Pagina ' + (i+1));
-        d.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(d);
-      }
-    }
-
-    function goTo(idx){
-      const pages = totalPages();
-      current = Math.max(0, Math.min(idx, pages - 1));
-      const vis   = getVisible();
-      const wrapW = track.parentElement.offsetWidth;
-      const cardW = (wrapW - GAP * (vis - 1)) / vis;
-      const offset = current * vis * (cardW + GAP);
-      track.style.transform = 'translateX(-' + offset + 'px)';
-      dotsWrap.querySelectorAll('.rc-dot').forEach((d, i) =>
-        d.classList.toggle('active', i === current)
-      );
-    }
-
-    document.getElementById('rcPrev').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('rcNext').addEventListener('click', () => goTo(current + 1));
-
-    // Touch / swipe
-    let startX = 0;
-    track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
-    track.addEventListener('touchend',   e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if(Math.abs(dx) > 40) dx < 0 ? goTo(current + 1) : goTo(current - 1);
-    });
-
-    // Auto-advance
-    let timer = setInterval(() => goTo((current + 1) % totalPages()), 5000);
-    track.parentElement.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
-    track.parentElement.parentElement.addEventListener('mouseleave', () => {
-      clearInterval(timer);
-      timer = setInterval(() => goTo((current + 1) % totalPages()), 5000);
-    });
-
-    buildDots();
-    goTo(0);
-    window.addEventListener('resize', () => { buildDots(); goTo(0); });
-  })();
+const nav=document.getElementById("nav");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>50));
+const els=document.querySelectorAll(".reveal");
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:0.1});
+els.forEach(el=>io.observe(el));
+(function(){
+  const track=document.getElementById("reviewsTrack");
+  const dotsWrap=document.getElementById("rcDots");
+  const cards=track.querySelectorAll(".review-card");
+  const GAP=32;
+  let current=0;
+  function getVisible(){if(window.innerWidth<=900)return 1;if(window.innerWidth<=1200)return 2;return 3;}
+  function totalPages(){return Math.ceil(cards.length/getVisible());}
+  function buildDots(){dotsWrap.innerHTML="";const n=totalPages();for(let i=0;i<n;i++){const d=document.createElement("button");d.className="rc-dot"+(i===current?" active":"");d.setAttribute("aria-label","Pagina "+(i+1));d.addEventListener("click",()=>goTo(i));dotsWrap.appendChild(d);}}
+  function goTo(idx){const pages=totalPages();current=Math.max(0,Math.min(idx,pages-1));const vis=getVisible();const wrapW=track.parentElement.offsetWidth;const cardW=(wrapW-GAP*(vis-1))/vis;const offset=current*vis*(cardW+GAP);track.style.transform="translateX(-"+offset+"px)";dotsWrap.querySelectorAll(".rc-dot").forEach((d,i)=>d.classList.toggle("active",i===current));}
+  document.getElementById("rcPrev").addEventListener("click",()=>goTo(current-1));
+  document.getElementById("rcNext").addEventListener("click",()=>goTo(current+1));
+  let startX=0;
+  track.addEventListener("touchstart",e=>startX=e.touches[0].clientX,{passive:true});
+  track.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>40)dx<0?goTo(current+1):goTo(current-1);});
+  let timer=setInterval(()=>goTo((current+1)%totalPages()),5000);
+  track.parentElement.parentElement.addEventListener("mouseenter",()=>clearInterval(timer));
+  track.parentElement.parentElement.addEventListener("mouseleave",()=>{clearInterval(timer);timer=setInterval(()=>goTo((current+1)%totalPages()),5000);});
+  buildDots();goTo(0);
+  window.addEventListener("resize",()=>{buildDots();goTo(0);});
+})();
 </script>
 </body>
 </html>
